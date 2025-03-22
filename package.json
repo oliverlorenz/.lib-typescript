@@ -1,5 +1,5 @@
 {
-  "name": "@oliverlorenz/lib-tiktok",
+  "name": "@oliverlorenz/<REPO_NAME>",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -15,21 +15,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oliverlorenz/lib-tiktok.git"
+    "url": "git+https://github.com/oliverlorenz/<REPO_NAME>.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/oliverlorenz/lib-tiktok/issues"
+    "url": "https://github.com/oliverlorenz/<REPO_NAME>/issues"
   },
-  "homepage": "https://github.com/oliverlorenz/lib-tiktok#readme",
+  "homepage": "https://github.com/oliverlorenz/<REPO_NAME>#readme",
   "description": "",
-  "dependencies": {
-    "puppeteer": "^24.4.0",
-    "puppeteer-extra": "^3.3.6",
-    "puppeteer-extra-plugin-stealth": "^2.11.2"
-  },
   "engines": {
     "node": ">=22.0.0"
   },

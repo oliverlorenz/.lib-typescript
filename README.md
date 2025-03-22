@@ -1,11 +1,11 @@
-# lib-tiktok
+# <REPO_NAME>
 
-lib-notion is a library for interacting with the Notion API. It provides a simple and intuitive interface for accessing and manipulating Notion data.
+a description
 
 ## Installation
 
-To install lib-notion, use npm or yarn:
+To install <REPO_NAME>, use npm:
 
 ```bash
-npm install @oliverlorenz/lib-notion
+npm install @oliverlorenz/<REPO_NAME>
 ```
