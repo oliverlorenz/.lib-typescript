@@ -1,7 +1,8 @@
 {
   "name": "@oliverlorenz/<REPO_NAME>",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "del-cli ./dist",
@@ -11,7 +12,10 @@
     "test": "npm run build && jest --coverage",
     "test:watch": "jest --coverage --coverage-reporters html --watch-all",
     "postinstall": "npx husky init",
-    "prepare": "husky"
+    "prepare": "husky",
+    "git-hook:pre-commit": "npm test",
+    "git-hook:pre-push": "npm run lint:eslint && npm run lint:prettier && npm test",
+    "check:all": "npm run git-hook:pre-push && npm run git-hook:pre-commit"
   },
   "repository": {
     "type": "git",
