@@ -1,5 +1,5 @@
 {
-  "name": "lib-<REPO_NAME>",
+  "name": "<REPO_NAME>",
   "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:22",
   "postCreateCommand": "bash -i -c 'nvm install' && npm install",
   "containerEnv": {
