@@ -12,6 +12,7 @@
     "strictFunctionTypes": true ,
     "noImplicitThis": true ,
     "alwaysStrict": true,
+    "sourceMap": true,
     "noImplicitReturns": true,
     "skipLibCheck": true,
     "pretty": true,
