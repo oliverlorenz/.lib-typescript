@@ -61,7 +61,5 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
-  "dependencies": {
-    "nodejs-whisper": "^0.2.9"
-  }
+  "dependencies": {}
 }
