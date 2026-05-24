@@ -9,7 +9,7 @@
     "clean": "del-cli ./dist",
     "git-hook:pre-commit": "npm test",
     "git-hook:pre-push": "npm run lint:eslint && npm run lint:prettier && npm test",
-    "lint:eslint": "eslint ./src --ext .ts",
+    "lint:eslint": "eslint \"src/**/*.ts\"",
     "lint:prettier": "prettier \"src/**/*.ts\" --cache --check",
     "lint:types": "tsc --noEmit --skipLibCheck && tsc-strict",
     "lint": "npm run lint:eslint && npm run lint:prettier && npm run lint:types",
