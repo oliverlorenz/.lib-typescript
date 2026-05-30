@@ -1,5 +1,10 @@
 {
   "$schema": "https://unpkg.com/knip/schema.json",
-  "entry": ["src/index.ts"],
-  "project": ["src/**/*.ts"]
+  "ignoreDependencies": [
+    "conventional-changelog-conventionalcommits",
+    "eslint-config-prettier"
+  ],
+  "rules": {
+    "enumMembers": "off"
+  }
 }

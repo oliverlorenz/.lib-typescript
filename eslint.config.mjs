@@ -22,6 +22,7 @@ export default [
   },
   ...compat.extends('prettier'),
   {
+    files: ['**/*.ts'],
     plugins: {
       '@typescript-eslint': typescriptEslint,
       'check-file': checkFileEslint,
@@ -76,7 +77,7 @@ export default [
           'src/**/*.ts': 'KEBAB_CASE',
         },
         {
-          ignoreMiddleExtensions: true, // Erlaubt .test.ts oder .spec.ts
+          ignoreMiddleExtensions: true,
         },
       ],
       '@typescript-eslint/naming-convention': [
@@ -101,7 +102,20 @@ export default [
       '@typescript-eslint/strict-boolean-expressions': 'error',
       '@typescript-eslint/prefer-nullish-coalescing': 'error',
       '@typescript-eslint/no-unnecessary-condition': 'error',
-      '@typescript-eslint/member-ordering': 'error',
+      '@typescript-eslint/member-ordering': ['error', {
+        default: {
+          memberTypes: [
+            'static-field',
+            'static-method',
+            'constructor',
+            'instance-field',
+            'public-instance-method',
+            'protected-instance-method',
+            'private-instance-method',
+          ],
+          order: 'as-written',
+        },
+      }],
       '@typescript-eslint/require-await': 'error',
       '@typescript-eslint/no-misused-promises': 'error',
       '@typescript-eslint/switch-exhaustiveness-check': 'error',

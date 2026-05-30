@@ -14,7 +14,7 @@
     "lint:prettier": "prettier \"src/**/*.ts\" --cache --check",
     "lint:types": "tsc --noEmit --skipLibCheck && tsc-strict",
     "lint:knip": "knip",
-    "lint:md": "markdownlint-cli2 \"*.md\"",
+    "lint:md": "markdownlint-cli2 \"*.md\" \"!CHANGELOG.md\"",
     "lint:links": "markdown-link-check README.md --config .markdown-link-check.json",
     "lint:readme": "node scripts/lint-readme.mjs",
     "lint:publint": "publint",

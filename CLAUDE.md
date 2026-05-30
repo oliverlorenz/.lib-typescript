@@ -31,7 +31,7 @@ Releases are fully automated via `semantic-release`. No manual steps required af
 **The PR title is the release signal.** Because all PRs are squash-merged, the PR title becomes the commit message on `main`. `semantic-release` reads these commits to determine the version bump, generate `CHANGELOG.md`, create the GitHub Release, and publish to GitHub Packages.
 
 | PR title prefix | Version bump | In release notes |
-|---|---|---|
+| --- | --- | --- |
 | `feat: …` | minor (1.**x**.0) | ✅ Features |
 | `fix: …` | patch (1.x.**x**) | ✅ Bug Fixes |
 | `perf: …` / `revert: …` | patch (1.x.**x**) | ✅ |
@@ -39,12 +39,14 @@ Releases are fully automated via `semantic-release`. No manual steps required af
 | `refactor: …` / `docs: …` / `chore: …` / `ci: …` / `test: …` / `build: …` | no release | — |
 
 **When writing PR titles:**
+
 - Use imperative, lowercase: `feat: add group search` not `feat: Added group search`
 - Scope is optional: `feat(groups): add search` is fine
 - Breaking change via `!` suffix: `feat!: change constructor signature`
 - For breaking changes, also fill in the "Breaking changes" section of the PR template with migration instructions
 
 **Do not:**
+
 - Create `chore(release): …` commits manually — those are written back by `semantic-release`
 - Bump the version in `package.json` manually — `semantic-release` owns the version
 - Edit `CHANGELOG.md` manually — it is auto-generated
@@ -53,7 +55,7 @@ Releases are fully automated via `semantic-release`. No manual steps required af
 
 Each domain lives in its own folder and is self-contained:
 
-```
+```text
 src/
   <domain>/
     <domain>.service.ts        - Service class (business logic)
@@ -174,7 +176,7 @@ Strict mode is fully enabled. The ESLint config enforces:
 - `@typescript-eslint/strict-boolean-expressions: error` — no implicit boolean coercions (`if (str)` → `if (str !== '')`)
 - `@typescript-eslint/prefer-nullish-coalescing: error` — use `??` instead of `||` for null/undefined fallbacks
 - `@typescript-eslint/no-unnecessary-condition: error` — no always-true or always-false conditions
-- `@typescript-eslint/member-ordering: error` — consistent ordering of class members
+- `@typescript-eslint/member-ordering: error` — class member order: static fields → static methods → constructor → instance fields → public methods → private methods
 - `no-only-tests/no-only-tests: error` — no `test.only` or `describe.only` in test files
 - `@typescript-eslint/require-await: error` — `async` functions must contain at least one `await`
 - `@typescript-eslint/no-misused-promises: error` — no Promises in `forEach`, `if()` conditions etc.
