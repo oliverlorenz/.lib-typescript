@@ -21,7 +21,7 @@ jobs:
       docs: ${{ github.event_name == 'push' && 'true' || steps.filter.outputs.docs }}
       deps: ${{ github.event_name == 'push' && 'true' || steps.filter.outputs.deps }}
     steps:
-      - uses: actions/checkout@v4.2.2
+      - uses: actions/checkout@v6.0.2
       - uses: dorny/paths-filter@v3
         id: filter
         with:
@@ -56,7 +56,7 @@ jobs:
           - types
           - knip
     steps:
-      - uses: actions/checkout@v4.2.2
+      - uses: actions/checkout@v6.0.2
       - uses: actions/setup-node@v4.4.0
         with:
           node-version-file: '.nvmrc'
@@ -78,7 +78,7 @@ jobs:
           - md
           - readme
     steps:
-      - uses: actions/checkout@v4.2.2
+      - uses: actions/checkout@v6.0.2
       - uses: actions/setup-node@v4.4.0
         with:
           node-version-file: '.nvmrc'
@@ -94,7 +94,7 @@ jobs:
     if: needs.changes.outputs.src == 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.2.2
+      - uses: actions/checkout@v6.0.2
       - uses: actions/setup-node@v4.4.0
         with:
           node-version-file: '.nvmrc'
@@ -112,7 +112,7 @@ jobs:
     if: needs.changes.outputs.deps == 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.2.2
+      - uses: actions/checkout@v6.0.2
       - uses: actions/setup-node@v4.4.0
         with:
           node-version-file: '.nvmrc'
