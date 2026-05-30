@@ -16,6 +16,9 @@ jobs:
   changes:
     name: Detect changes
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
     outputs:
       src: ${{ github.event_name == 'push' && 'true' || steps.filter.outputs.src }}
       docs: ${{ github.event_name == 'push' && 'true' || steps.filter.outputs.docs }}
@@ -120,6 +123,7 @@ jobs:
       - name: Configure npm to use GitHub Package Registry
         run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
       - run: npm install
+      - run: npm run build
       - run: npm run lint:publint
       - name: Audit dependencies
         run: npm audit --audit-level=high
