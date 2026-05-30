@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import js from "@eslint/js";
 import { FlatCompat } from "@eslint/eslintrc";
 import checkFileEslint from 'eslint-plugin-check-file';
+import noOnlyTests from 'eslint-plugin-no-only-tests';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -24,6 +25,7 @@ export default [
     plugins: {
       '@typescript-eslint': typescriptEslint,
       'check-file': checkFileEslint,
+      'no-only-tests': noOnlyTests,
     },
 
     languageOptions: {
@@ -44,7 +46,7 @@ export default [
     rules: {
       '@typescript-eslint/interface-name-prefix': 'off',
       '@typescript-eslint/explicit-function-return-type': 'error',
-      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/no-non-null-assertion': 'error',
       '@typescript-eslint/no-floating-promises': 'error',
 
@@ -80,27 +82,36 @@ export default [
       '@typescript-eslint/naming-convention': [
         'error',
         {
-          // Wir wählen gezielt Klassen aus
           selector: 'class',
           format: ['PascalCase'],
         },
         {
-          // Oft sinnvoll: Auch Interfaces und Enums in PascalCase
           selector: ['interface', 'typeAlias', 'enum'],
           format: ['PascalCase'],
         },
         {
-          // Variablen bleiben meistens camelCase
           selector: 'variable',
           format: ['camelCase', 'UPPER_CASE'],
         },
       ],
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        { prefer: 'type-imports', fixStyle: 'inline-type-imports' },
+      ],
+      '@typescript-eslint/strict-boolean-expressions': 'error',
+      '@typescript-eslint/prefer-nullish-coalescing': 'error',
+      '@typescript-eslint/no-unnecessary-condition': 'error',
+      '@typescript-eslint/member-ordering': 'error',
+      '@typescript-eslint/require-await': 'error',
+      '@typescript-eslint/no-misused-promises': 'error',
+      '@typescript-eslint/switch-exhaustiveness-check': 'error',
     },
   },
   {
     files: ['**/*.test.ts'],
     rules: {
       '@typescript-eslint/no-non-null-assertion': 'off',
+      'no-only-tests/no-only-tests': 'error',
     },
   },
 ];
