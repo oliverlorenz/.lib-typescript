@@ -17,6 +17,7 @@ npm run lint:readme   # check README.md has required sections (Installation, Usa
 npm run lint:links    # check all links in README.md are reachable (local only, not in CI)
 npm run lint:publint  # publint — package.json exports/main/types correctly configured
 npm run lint:attw     # are-the-types-wrong — TypeScript types correctly exported (needs dist/)
+npm run lint:audit    # audit-ci — fail on high-severity dependency vulnerabilities
 npm run check:all     # run all git hooks locally
 ```
 
