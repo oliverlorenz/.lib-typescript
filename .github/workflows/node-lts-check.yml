@@ -2,8 +2,8 @@ name: Node LTS check
 
 on:
   schedule:
-    # Every Monday at 06:00 UTC
-    - cron: '0 6 * * 1'
+    # First day of every month at 06:00 UTC
+    - cron: '0 6 1 * *'
   workflow_dispatch:
 
 jobs:
