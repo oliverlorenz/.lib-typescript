@@ -5,8 +5,8 @@ TypeScript library template. Published as `@oliverlorenz/<REPO_NAME>` to the Git
 ## Commands
 
 ```bash
-npm test              # build + jest with coverage (also runs on pre-commit)
-npm run test:watch    # jest watch mode with HTML coverage
+npm test              # build + vitest with coverage (also runs on pre-commit)
+npm run test:watch    # vitest watch mode with HTML coverage
 npm run build         # tsc compile → dist/
 npm run lint:eslint   # ESLint (also runs on pre-push)
 npm run lint:prettier # Prettier format check (also runs on pre-push)
@@ -154,7 +154,7 @@ export class GroupMapper {
 Shared fixtures and mock instances for tests, colocated with the domain:
 
 ```ts
-import { mock } from 'jest-mock-extended';
+import { mock } from 'vitest-mock-extended';
 import type { GroupService } from './group.service';
 import type { Group } from './group.types';
 
@@ -187,7 +187,7 @@ Strict mode is fully enabled. The ESLint config enforces:
 ## Testing
 
 - Test files colocated with source: `group.service.test.ts` next to `group.service.ts`
-- Use `jest-mock-extended` (`mock<T>()`) to mock dependencies
+- Use `vitest-mock-extended` (`mock<T>()`) to mock dependencies
 - Coverage threshold: 80% branches, functions, lines, statements
 - Tests must be deterministic and stateless — no reliance on external systems
 - Follow Arrange-Act-Assert (AAA) pattern; each test covers exactly one behavior
@@ -215,3 +215,4 @@ Run `git branch` and `git status` to confirm you are on `main` and the working t
 
 - Node >= 22.0.0
 - Publish target: `https://npm.pkg.github.com`
+- ESM only — the package has no CommonJS build; consumers must `import`, not `require`
