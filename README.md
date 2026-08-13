@@ -12,6 +12,8 @@ npm install @oliverlorenz/<REPO_NAME>
 
 ## Usage
 
+This package is ESM-only. Use `import`, not `require`.
+
 ```typescript
 import {} from '@oliverlorenz/<REPO_NAME>';
 ```

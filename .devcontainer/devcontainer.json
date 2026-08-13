@@ -12,11 +12,10 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "firsttris.vscode-jest-runner",
+        "vitest.explorer",
         "esbenp.prettier-vscode",
         "ms-vscode.vscode-typescript-tslint-plugin",
         "ms-vsliveshare.vsliveshare",
-        "rtbenfield.vscode-jest-test-adapter",
         "dbaeumer.vscode-eslint",
         "visualstudioexptteam.vscodeintellicode"
       ],
