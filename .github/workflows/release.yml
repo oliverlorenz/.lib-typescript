@@ -41,7 +41,20 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      # template-bootstrap:remove-start
+      - name: Check for unconfigured template placeholders
+        id: template-check
+        run: |
+          if grep -q '<REPO_NAME>' package.json; then
+            echo "This is the .lib-typescript template repo itself (package.json still has <REPO_NAME> placeholders) — skipping release."
+            echo "is_template=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "is_template=false" >> "$GITHUB_OUTPUT"
+          fi
+      # template-bootstrap:remove-end
+
       - name: Release
+        if: steps.template-check.outputs.is_template == 'false' # template-bootstrap:remove-line
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

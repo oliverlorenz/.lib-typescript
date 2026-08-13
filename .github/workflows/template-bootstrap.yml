@@ -1,0 +1,61 @@
+name: Template Bootstrap
+
+# Safety net for repos generated from oliverlorenz/.lib-typescript via
+# "Use this template": if package.json still has an unreplaced <REPO_NAME>
+# placeholder on the first push to main, replace it (and strip
+# template-only scaffolding) automatically. scripts/init-from-template.sh
+# does the same thing manually and removes this workflow — this only fires
+# for anyone who skips that step.
+#
+# Commits made with GITHUB_TOKEN don't trigger further workflow runs, so
+# this can't loop. Requires main to accept direct pushes from Actions.
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: template-bootstrap-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  bootstrap:
+    name: Replace template placeholders
+    runs-on: ubuntu-latest
+    if: github.repository != 'oliverlorenz/.lib-typescript'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+
+      - name: Check for unconfigured template placeholders
+        id: check
+        run: |
+          if grep -q '<REPO_NAME>' package.json; then
+            echo "found=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "found=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set NodeJS version
+        if: steps.check.outputs.found == 'true'
+        uses: actions/setup-node@v7.0.0
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Replace placeholders and remove template-only scaffolding
+        if: steps.check.outputs.found == 'true'
+        run: |
+          ./scripts/replace-template-placeholders.sh "${{ github.event.repository.name }}"
+          rm -f .github/workflows/template-bootstrap.yml scripts/replace-template-placeholders.sh scripts/init-from-template.sh
+
+      - name: Commit and push
+        if: steps.check.outputs.found == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: bootstrap repo from .lib-typescript template"
+          git push

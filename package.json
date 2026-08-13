@@ -15,6 +15,7 @@
     "CHANGELOG.md"
   ],
   "scripts": {
+    "bootstrap": "scripts/init-from-template.sh",
     "build": "npm run clean && tsc",
     "check:all": "npm run git-hook:pre-push && npm run git-hook:pre-commit",
     "clean": "del-cli ./dist",
