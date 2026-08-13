@@ -2,6 +2,17 @@
 
 TypeScript library template. Published as `@oliverlorenz/<REPO_NAME>` to the GitHub npm registry.
 
+<!-- template-bootstrap:remove-start -->
+## Using this as a template
+
+This repo is a GitHub template. After generating a new repo from it ("Use this template"), the `<REPO_NAME>` placeholders (in `package.json`, `README.md`, `CLAUDE.md`, `.devcontainer/devcontainer.json`, `src/index.ts`) get replaced with the real repo name one of two ways:
+
+- **Automatic**: `.github/workflows/template-bootstrap.yml` runs on the first push to `main` and does it for you.
+- **Manual / immediate**: run `scripts/init-from-template.sh` locally right after cloning, instead of waiting for CI.
+
+Either path also removes the template-only guard from `.github/workflows/release.yml` and this section from `CLAUDE.md`.
+<!-- template-bootstrap:remove-end -->
+
 ## Commands
 
 ```bash
