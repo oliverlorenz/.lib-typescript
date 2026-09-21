@@ -78,7 +78,7 @@
     "prettier": "^3.9.6",
     "publint": "^0.3.24",
     "semantic-release": "^25.0.8",
-    "type-fest": "^5.9.0",
+    "type-fest": "^5.10.0",
     "typescript": "^6.0.3",
     "typescript-strict-plugin": "^2.4.4",
     "vitest": "^4.1.10",
