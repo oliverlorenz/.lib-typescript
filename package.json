@@ -62,7 +62,7 @@
     "@types/node": "^26.1.0",
     "@typescript-eslint/eslint-plugin": "^8.71.1",
     "@typescript-eslint/parser": "^8.59.4",
-    "@vitest/coverage-v8": "^4.1.11",
+    "@vitest/coverage-v8": "^5.1.0",
     "audit-ci": "^7.1.0",
     "conventional-changelog-conventionalcommits": "^10.4.0",
     "del-cli": "^7.0.0",
@@ -81,7 +81,7 @@
     "type-fest": "^5.10.0",
     "typescript": "^6.0.3",
     "typescript-strict-plugin": "^2.4.4",
-    "vitest": "^4.1.10",
+    "vitest": "^5.1.0",
     "vitest-mock-extended": "^5.1.1"
   },
   "publishConfig": {
