@@ -26,3 +26,4 @@ Replaces <REPO_NAME> placeholders with ${REPO_NAME} and removes
 template-only scaffolding."
 
 echo "Done. Review the changes, fill in package.json's description, then push."
+echo "After the push, run scripts/setup-ruleset.sh once to protect main (required checks for auto-merge)."
