@@ -5,8 +5,12 @@ updates:
     schedule:
       interval: weekly
       day: monday
+    cooldown:
+      default-days: 5
     commit-message:
-      prefix: "chore"
+      prefix: "fix"
+      prefix-development: "chore"
+      include: "scope"
     ignore:
       # TypeScript 7 (native Go port) no longer ships the classic compiler API that
       # @typescript-eslint, typescript-strict-plugin and @arethetypeswrong/cli rely on,
@@ -57,5 +61,8 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 5
+    cooldown:
+      default-days: 5
     commit-message:
       prefix: "ci"
+      include: "scope"
